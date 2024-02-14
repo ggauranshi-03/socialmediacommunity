@@ -33,13 +33,13 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-// import { Alert } from "@material-tailwind/react";
-// import PostCard from "./PostCard";
+import { Alert } from "@material-tailwind/react";
+import PostCard from "./PostCard";
 
 const Main = () => {
   const { user, userData } = useContext(AuthContext);
   const text = useRef("");
-  const scrollRef = useRef("");
+  // const scrollRef = useRef("");
   const [image, setImage] = useState(null);
   const [file, setFile] = useState(null);
   const collectionRef = collection(db, "posts");
@@ -93,6 +93,7 @@ const Main = () => {
   const submitImage = async () => {
     const fileType = metadata.contentType.includes(file["type"]);
     if (!file) return;
+    console.log(fileType);
     if (fileType) {
       try {
         const storageRef = ref(storage, `images/${file.name}`);
@@ -101,7 +102,7 @@ const Main = () => {
           file,
           metadata.contentType
         );
-        await uploadTask.on(
+        uploadTask.on(
           "state_changed",
           (snapshot) => {
             const progress = Math.round(
@@ -152,7 +153,7 @@ const Main = () => {
           <Avatar
             size="sm"
             variant="circular"
-            src={avatar}
+            src={user?.photoURL || avatar}
             alt="avatar"
           ></Avatar>
           <form className="w-full" onSubmit={handleSubmitPost}>
@@ -225,7 +226,7 @@ const Main = () => {
           </div>
         </div>
       </div>
-      {/* <div className="flex flex-col py-4 w-full">
+      <div className="flex flex-col py-4 w-full">
         {state?.error ? (
           <div className="flex justify-center items-center">
             <Alert color="red">
@@ -255,7 +256,7 @@ const Main = () => {
           </div>
         )}
       </div>
-      <div ref={scrollRef}></div> */}
+      {/* <div ref={scrollRef}></div> */}
     </div>
   );
 };
