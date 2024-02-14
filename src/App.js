@@ -1,11 +1,15 @@
-// import logo from "./logo.svg";
 import "./App.css";
 import Pages from "./Components/Pages/Pages";
+import { BrowserRouter } from "react-router-dom";
+import AppContext from "./Components/AppContext/AppContext";
+
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      <Pages />
-    </h1>
+    <BrowserRouter>
+      <AppContext>
+        <Pages></Pages>
+      </AppContext>
+    </BrowserRouter>
   );
 }
 

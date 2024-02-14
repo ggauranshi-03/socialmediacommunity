@@ -12,26 +12,26 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import ClipLoader from "react-spinners/ClipLoader";
-// import { AuthContext } from "../AppContext/AppContext";
-// import { auth, onAuthStateChanged } from "../firebase/firebase";
+import { AuthContext } from "../AppContext/AppContext";
+import { auth, onAuthStateChanged } from "../firebase/firebase";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
-  // const { signInWithGoogle, loginWithEmailAndPassword } =
-  //   useContext(AuthContext);
-  // const navigate = useNavigate();
+  const { signInWithGoogle, loginWithEmailAndPassword } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       navigate("/");
-  //       setLoading(false);
-  //     } else {
-  //       setLoading(false);
-  //     }
-  //   });
-  // }, [navigate]);
+  useEffect(() => {
+    setLoading(true);
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/");
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
+    });
+  }, [navigate]);
 
   let initialValues = {
     email: "",
@@ -49,13 +49,13 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = formik.values;
-    // if (formik.isValid === true) {
-    //   loginWithEmailAndPassword(email, password);
-    setLoading(true);
-    // } else {
-    setLoading(false);
-    alert("Check your input fields");
-    // }
+    if (formik.isValid === true) {
+      loginWithEmailAndPassword(email, password);
+      setLoading(true);
+    } else {
+      setLoading(false);
+      alert("Check your input fields");
+    }
 
     console.log("formik", formik);
   };
@@ -129,7 +129,7 @@ const Login = () => {
                 variant="gradient"
                 fullWidth
                 className="mb-4"
-                // onClick={signInWithGoogle}
+                onClick={signInWithGoogle}
               >
                 Sign In with Google
               </Button>

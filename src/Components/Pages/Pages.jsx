@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./Home";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import Reset from "./Reset";
@@ -8,16 +8,18 @@ import Reset from "./Reset";
 
 const Pages = () => {
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/reset" element={<Reset />} />
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="reset" element={<Reset></Reset>}></Route>
+        {/* <Route
+          path="/profile/:id"
+          element={<FriendProfile></FriendProfile>}
+        ></Route> */}
+      </Routes>
+    </div>
   );
 };
 
