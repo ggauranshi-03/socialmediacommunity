@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-// import waterslide from "../../assets/images/waterslide.jpg";
 import { AuthContext } from "../AppContext/AppContext";
 import { Link } from "react-router-dom";
 import { Avatar } from "@material-tailwind/react";
