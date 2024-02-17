@@ -81,7 +81,11 @@ const LeftSide = () => {
         ></img>
         <div className="absolute -bottom-4">
           <Tooltip content="Profile" placement="top">
-            <Avatar size="md" src={avatar} alt="avatar"></Avatar>
+            <Avatar
+              size="md"
+              src={user?.photoURL || avatar}
+              alt="avatar"
+            ></Avatar>
           </Tooltip>
         </div>
       </div>

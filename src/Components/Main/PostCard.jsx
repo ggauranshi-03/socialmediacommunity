@@ -4,7 +4,7 @@ import avatar from "../../assets/images/avatar.jpg";
 import like from "../../assets/images/like.png";
 import comment from "../../assets/images/comment.png";
 import remove from "../../assets/images/delete.png";
-// import addFriend from "../../assets/images/add-friend.png";
+import addFriend from "../../assets/images/add-friend.png";
 import { AuthContext } from "../AppContext/AppContext";
 import {
   PostsReducer,
@@ -24,7 +24,7 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { db } from "../firebase/firebase";
-// import CommentSection from "./CommentSection";
+import CommentSection from "./CommentSection";
 
 const PostCard = ({ uid, id, logo, name, email, text, image, timestamp }) => {
   const { user } = useContext(AuthContext);
@@ -130,7 +130,7 @@ const PostCard = ({ uid, id, logo, name, email, text, image, timestamp }) => {
               Published: {timestamp}
             </p>
           </div>
-          {/* {user?.uid !== uid && (
+          {user?.uid !== uid && (
             <div
               onClick={addUser}
               className="w-full flex justify-end cursor-pointer mr-10"
@@ -141,7 +141,7 @@ const PostCard = ({ uid, id, logo, name, email, text, image, timestamp }) => {
                 alt="addFriend"
               ></img>
             </div>
-          )} */}
+          )}
         </div>
         <div>
           <p className="ml-4 pb-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
@@ -181,7 +181,7 @@ const PostCard = ({ uid, id, logo, name, email, text, image, timestamp }) => {
           </div>
         </div>
       </div>
-      {/* {open && <CommentSection postId={id}></CommentSection>} */}
+      {open && <CommentSection postId={id}></CommentSection>}
     </div>
   );
 };

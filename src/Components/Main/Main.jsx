@@ -93,7 +93,8 @@ const Main = () => {
   const submitImage = async () => {
     const fileType = metadata.contentType.includes(file["type"]);
     if (!file) return;
-    console.log(fileType);
+    console.log("filetype", fileType);
+    console.log("file", file);
     if (fileType) {
       try {
         const storageRef = ref(storage, `images/${file.name}`);
