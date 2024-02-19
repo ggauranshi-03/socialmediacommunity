@@ -125,8 +125,11 @@ import { Button } from "@material-tailwind/react";
 import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
-
+// import dotenv
+// require('dotenv').config();
+import env from "react-dotenv";
 const API_KEY = ""
+
 // "Explain things like you would to a person who doesn't know much"
 const systemMessage = { //  Explain things like you are an extremely experienced environment and life on land expert 
   "role": "system", "content": "Explain things like you are an extremely experienced environment and life on land expert."
