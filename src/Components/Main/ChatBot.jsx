@@ -126,7 +126,7 @@ import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-const API_KEY = "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"
+const API_KEY = ""
 // "Explain things like you would to a person who doesn't know much"
 const systemMessage = { //  Explain things like you are an extremely experienced environment and life on land expert 
   "role": "system", "content": "Explain things like you are an extremely experienced environment and life on land expert."
